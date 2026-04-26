@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs - JZPT Global Manpower Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reuse styles from homepage for consistency */
+        :root { --primary-color: #046bd2; --secondary-color: #1e293b; --accent-green: #72b261; --text-color: #334155; --light-bg: #f9fafb; --white: #ffffff; --font-heading: 'Be Vietnam Pro', sans-serif; --font-body: 'Inter', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); color: var(--text-color); line-height: 1.6; background-color: var(--white); }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header Styles (Same as Home) */
+        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .logo img { height: 50px; }
+        .nav-menu ul { display: flex; gap: 30px; }
+        .nav-menu a { font-weight: 600; color: var(--secondary-color); }
+        .nav-menu a:hover, .nav-menu a.active { color: var(--primary-color); }
+        .btn { display: inline-block; padding: 12px 30px; background-color: var(--primary-color); color: var(--white); border-radius: 5px; font-weight: 600; border: none; cursor: pointer; }
+        
+        /* Job Page Specific Styles */
+        .page-title-section { background: var(--light-bg); padding: 60px 0; text-align: center; }
+        .page-title-section h1 { font-size: 2.5rem; color: var(--secondary-color); margin-bottom: 10px; }
+        
+        .job-listings-container { padding: 60px 0; }
+        .job-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; }
+        
+        .job-card { 
+            background: var(--white); border: 1px solid #e2e8f0; border-radius: 10px; 
+            padding: 30px; transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column;
+        }
+        .job-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        
+        .job-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px; }
+        .job-title { font-size: 1.25rem; font-weight: 700; color: var(--secondary-color); margin: 0; }
+        .verified-badge { background: rgba(114, 178, 97, 0.1); color: var(--accent-green); padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+        
+        .job-location { display: flex; align-items: center; gap: 8px; color: #64748b; font-size: 0.9rem; margin-bottom: 15px; }
+        .job-location img { width: 24px; height: auto; border-radius: 2px; }
+        
+        .job-desc { color: #64748b; font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1; }
+        
+        .job-footer { border-top: 1px solid #e2e8f0; padding-top: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .job-type { font-size: 0.85rem; color: #64748b; display: flex; align-items: center; gap: 5px; }
+        .apply-btn { background-color: var(--primary-color); color: white; padding: 8px 20px; border-radius: 4px; font-size: 0.9rem; font-weight: 600; }
+        .apply-btn:hover { background-color: #0354a8; }
+
+        /* Footer (Same as Home) */
+        footer { background: #0f172a; color: #fff; padding: 60px 0 20px; margin-top: auto; }
+        .copyright { text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 40px; border-top: 1px solid #1e293b; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="https://jzptglobal.com/wp-content/uploads/2023/06/jzpt-global-manpower-services-768x124.jpg" alt="JZPT Global">
+                </a>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <!-- Active State for Jobs Page -->
+                    <li><a href="job-openings.html" class="active">Jobs</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="btn">Post a Job</a>
+        </div>
+    </header>
+
+    <!-- Page Title -->
+    <section class="page-title-section">
+        <div class="container">
+            <h1>Job Openings</h1>
+            <p>Browse our latest international job opportunities</p>
+        </div>
+    </section>
+
+    <!-- Job Listings -->
+    <section class="job-listings-container">
+        <div class="container">
+            <div class="job-grid">
+                
+                <!-- Job Item 1 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <h2 class="job-title">Construction Painter</h2>
+                        <span class="verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                    </div>
+                    <div class="job-location">
+                        <img src="https://flagcdn.com/w40/jp.png" alt="Japan">
+                        <span>Japan</span>
+                    </div>
+                    <p class="job-desc">A skilled professional responsible for applying paint and coatings to surfaces in the construction industry.</p>
+                    <div class="job-footer">
+                        <span class="job-type"><i class="fas fa-clock"></i> Full Time</span>
+                        <a href="#" class="apply-btn">Apply Now</a>
+                    </div>
+                </div>
+
+                <!-- Job Item 2 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <h2 class="job-title">Butcher</h2>
+                        <span class="verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                    </div>
+                    <div class="job-location">
+                        <img src="https://flagcdn.com/w40/nz.png" alt="New Zealand">
+                        <span>New Zealand</span>
+                    </div>
+                    <p class="job-desc">Specializes in preparing, cutting, deboning, and portioning various types of meat.</p>
+                    <div class="job-footer">
+                        <span class="job-type"><i class="fas fa-clock"></i> Full Time</span>
+                        <a href="#" class="apply-btn">Apply Now</a>
+                    </div>
+                </div>
+
+                <!-- Job Item 3 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <h2 class="job-title">Meat Boner</h2>
+                        <span class="verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                    </div>
+                    <div class="job-location">
+                        <img src="https://flagcdn.com/w40/nz.png" alt="New Zealand">
+                        <span>New Zealand</span>
+                    </div>
+                    <p class="job-desc">Involved in various tasks related to the processing, packaging, and handling of meat products.</p>
+                    <div class="job-footer">
+                        <span class="job-type"><i class="fas fa-clock"></i> Full Time</span>
+                        <a href="#" class="apply-btn">Apply Now</a>
+                    </div>
+                </div>
+
+                <!-- Job Item 4 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <h2 class="job-title">Truck Driver</h2>
+                        <span class="verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                    </div>
+                    <div class="job-location">
+                        <img src="https://flagcdn.com/w40/pl.png" alt="Poland">
+                        <span>Poland</span>
+                    </div>
+                    <p class="job-desc">Operates and drives a commercial truck to transport goods and materials over long distances.</p>
+                    <div class="job-footer">
+                        <span class="job-type"><i class="fas fa-clock"></i> Full Time</span>
+                        <a href="#" class="apply-btn">Apply Now</a>
+                    </div>
+                </div>
+
+                <!-- Job Item 5 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <h2 class="job-title">Care Giver</h2>
+                        <span class="verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                    </div>
+                    <div class="job-location">
+                        <img src="https://flagcdn.com/w40/jp.png" alt="Japan">
+                        <span>Japan</span>
+                    </div>
+                    <p class="job-desc">Provides assistance and support to individuals in need of care, such as the elderly or disabled.</p>
+                    <div class="job-footer">
+                        <span class="job-type"><i class="fas fa-clock"></i> Full Time</span>
+                        <a href="#" class="apply-btn">Apply Now</a>
+                    </div>
+                </div>
+
+                <!-- Job Item 6 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <h2 class="job-title">Industrial Packager</h2>
+                        <span class="verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                    </div>
+                    <div class="job-location">
+                        <img src="https://flagcdn.com/w40/jp.png" alt="Japan">
+                        <span>Japan</span>
+                    </div>
+                    <p class="job-desc">Efficiently and securely packaging products or materials in an industrial setting.</p>
+                    <div class="job-footer">
+                        <span class="job-type"><i class="fas fa-clock"></i> Full Time</span>
+                        <a href="#" class="apply-btn">Apply Now</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>Copyright © 2023 JZPT Global Manpower Services, All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

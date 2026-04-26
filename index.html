@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JZPT Global Manpower Agency - Home</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #046bd2;
+            --secondary-color: #1e293b;
+            --accent-green: #72b261;
+            --text-color: #334155;
+            --light-bg: #f9fafb;
+            --white: #ffffff;
+            --font-heading: 'Be Vietnam Pro', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); color: var(--text-color); line-height: 1.6; background-color: var(--white); }
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); color: var(--secondary-color); font-weight: 700; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        .btn {
+            display: inline-block; padding: 12px 30px; background-color: var(--primary-color);
+            color: var(--white); border-radius: 5px; font-weight: 600; border: none; cursor: pointer;
+        }
+        .btn:hover { background-color: #0354a8; }
+        .btn-outline { background-color: transparent; border: 2px solid var(--primary-color); color: var(--primary-color); }
+        .section-padding { padding: 80px 0; }
+
+        /* Header */
+        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .logo img { height: 50px; }
+        .nav-menu ul { display: flex; gap: 30px; }
+        .nav-menu a { font-weight: 600; color: var(--secondary-color); }
+        .nav-menu a:hover, .nav-menu a.active { color: var(--primary-color); }
+
+        /* Hero Section */
+        .hero { background-color: var(--light-bg); padding: 100px 0; position: relative; overflow: hidden; }
+        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .hero-content h6 { color: var(--primary-color); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .hero-content h1 { font-size: 3rem; line-height: 1.2; margin-bottom: 20px; }
+        .hero-stats { display: flex; align-items: center; gap: 15px; margin: 30px 0; }
+        .stat-img-group img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--white); margin-left: -10px; }
+        .stat-img-group img:first-child { margin-left: 0; }
+        .hero-image img { width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
+        /* Features */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .feature-card { background: var(--white); padding: 40px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; transition: transform 0.3s; }
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-icon { font-size: 40px; color: var(--accent-green); margin-bottom: 20px; }
+        .feature-card.highlight { background: linear-gradient(135deg, var(--accent-green), #83b348); color: var(--white); }
+        .feature-card.highlight h3, .feature-card.highlight p { color: var(--white); }
+
+        /* About / Service */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .about-img { position: relative; }
+        .about-img img { width: 100%; border-radius: 10px; }
+        .exp-badge { position: absolute; bottom: 30px; right: -20px; background: var(--white); padding: 20px; border-radius: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); text-align: center; }
+        .exp-badge span { display: block; font-size: 2rem; font-weight: 700; color: var(--accent-green); }
+
+        /* Video Section */
+        .video-section { background-color: var(--light-bg); }
+        .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .video-wrapper iframe { width: 100%; height: 350px; border-radius: 10px; }
+
+        /* Jobs Preview */
+        .jobs-header { text-align: center; margin-bottom: 50px; }
+        .job-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .job-card { background: var(--white); border: 1px solid #e2e8f0; border-radius: 10px; padding: 30px; position: relative; }
+        .verified-badge { position: absolute; top: 20px; left: 20px; background: rgba(114, 178, 97, 0.1); color: var(--accent-green); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+        .job-country { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
+        .job-country img { width: 30px; height: auto; }
+        .job-title { font-size: 1.25rem; margin-bottom: 10px; }
+        .job-desc { font-size: 0.9rem; color: #64748b; margin-bottom: 20px; }
+        .job-meta { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e2e8f0; padding-top: 15px; }
+
+        /* Stats Counter */
+        .stats-section { background: var(--secondary-color); color: var(--white); padding: 60px 0; }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; gap: 20px; }
+        .stat-item h3 { font-size: 2.5rem; color: var(--accent-green); margin-bottom: 5px; }
+        .stat-item p { color: #cbd5e1; }
+
+        /* FAQ */
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid #e2e8f0; margin-bottom: 10px; }
+        .faq-question { padding: 20px; background: #f8fafc; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { padding: 20px; display: none; color: #64748b; }
+        .faq-item.active .faq-answer { display: block; }
+
+        /* Footer */
+        footer { background: #0f172a; color: #fff; padding: 80px 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 50px; }
+        .footer-col h4 { color: #fff; margin-bottom: 20px; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: #94a3b8; }
+        .footer-links a:hover { color: var(--white); }
+        .newsletter-form input { width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 5px; border: none; }
+        .copyright { border-top: 1px solid #334155; padding-top: 20px; text-align: center; color: #94a3b8; font-size: 0.9rem; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-grid, .about-grid, .video-grid, .footer-grid, .stats-grid { grid-template-columns: 1fr; }
+            .nav-menu { display: none; } /* Simplified for demo */
+            .hero-content h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="https://jzptglobal.com/wp-content/uploads/2023/06/jzpt-global-manpower-services-768x124.jpg" alt="JZPT Global">
+                </a>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <!-- CONNECTED: Link to Job Page -->
+                    <li><a href="job-openings.html">Jobs</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="btn">Post a Job</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <h6>Find your dream job abroad here!</h6>
+                <h1>Looking for work overseas? Browse our job listings now!</h1>
+                <p>Are you a <strong>Filipino looking for an exciting work opportunity overseas?</strong> Look no further! Our website has hundreds of international job postings from a variety of industries.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-img-group">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User">
+                        <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="User">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="User">
+                    </div>
+                    <div>
+                        <strong>37K+</strong> Member Active
+                    </div>
+                </div>
+
+                <!-- CONNECTED: Link to Job Page -->
+                <a href="job-openings.html" class="btn">Browse Job</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://jzptglobal.com/wp-content/uploads/2023/06/img_frame.png" alt="Happy Worker">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-hard-hat feature-icon"></i>
+                    <h3>Free Skills & Language Training</h3>
+                    <p>Access high-quality language and skill training absolutely for FREE to help you succeed.</p>
+                </div>
+                <div class="feature-card highlight">
+                    <i class="fas fa-utensils feature-icon" style="color: white;"></i>
+                    <h3>Free Food & Accommodation</h3>
+                    <p>Applying for a job abroad is easier with free food and accommodation benefits included.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-money-bill-wave feature-icon"></i>
+                    <h3>100% No Placement Fee</h3>
+                    <p>Apply for jobs overseas without worrying about paying any placement fees. No hidden costs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Service Section -->
+    <section class="section-padding" style="background-color: #f8fafc;">
+        <div class="container about-grid">
+            <div class="about-img">
+                <img src="https://jzptglobal.com/wp-content/uploads/2023/06/black-woman-portrait-smile-and-arms-crossed-in-the-city-for-vision-ambition-or-career-success-co.jpg" alt="Professional Woman">
+                <div class="exp-badge">
+                    <span>5+</span>
+                    Years of Experience
+                </div>
+            </div>
+            <div class="about-content">
+                <h6>Our Service</h6>
+                <h2>Helping Filipinos work abroad with ease</h2>
+                <p>JZPT Global Manpower Services is a trusted POEA registered land-based manpower agency that connects highly skilled Filipino workers with international employers.</p>
+                <br>
+                <a href="#" class="btn btn-outline">Discover more</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="section-padding video-section">
+        <div class="container video-grid">
+            <div class="video-content">
+                <h6>Have a quick Tour</h6>
+                <h2>Watch the video and see us in action!</h2>
+                <p>Introducing our captivating promotional video showcasing our Japan recruitment and deployment project.</p>
+                <br>
+                <a href="#" class="btn">Download Brochure</a>
+            </div>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/cFIGomdy4TQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Jobs Preview -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="jobs-header">
+                <h2>Latest Job Listing</h2>
+            </div>
+            <div class="job-grid">
+                <!-- Job 1 -->
+                <div class="job-card">
+                    <span class="verified-badge"><i class="fas fa-check-circle"></i> Verified Company</span>
+                    <div class="job-country">
+                        <img src="https://flagcdn.com/w40/jp.png" alt="Japan Flag">
+                        <span>Japan</span>
+                    </div>
+                    <h3 class="job-title">Construction Painter</h3>
+                    <p class="job-desc">A skilled professional responsible for applying paint and coatings to surfaces in the construction industry.</p>
+                    <div class="job-meta">
+                        <span><i class="fas fa-clock"></i> Full Time</span>
+                        <a href="#" class="btn" style="padding: 8px 20px; font-size: 0.9rem;">Apply Now</a>
+                    </div>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="job-card">
+                    <span class="verified-badge"><i class="fas fa-check-circle"></i> Verified Company</span>
+                    <div class="job-country">
+                        <img src="https://flagcdn.com/w40/jp.png" alt="Japan Flag">
+                        <span>Japan</span>
+                    </div>
+                    <h3 class="job-title">Industrial Packager</h3>
+                    <p class="job-desc">Efficiently and securely packaging products or materials in an industrial setting.</p>
+                    <div class="job-meta">
+                        <span><i class="fas fa-clock"></i> Full Time</span>
+                        <a href="#" class="btn" style="padding: 8px 20px; font-size: 0.9rem;">Apply Now</a>
+                    </div>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="job-card">
+                    <span class="verified-badge"><i class="fas fa-check-circle"></i> Verified Company</span>
+                    <div class="job-country">
+                        <img src="https://flagcdn.com/w40/nz.png" alt="New Zealand Flag">
+                        <span>New Zealand</span>
+                    </div>
+                    <h3 class="job-title">Butcher</h3>
+                    <p class="job-desc">Specializes in preparing, cutting, deboning, and portioning various types of meat.</p>
+                    <div class="job-meta">
+                        <span><i class="fas fa-clock"></i> Full Time</span>
+                        <a href="#" class="btn" style="padding: 8px 20px; font-size: 0.9rem;">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <!-- CONNECTED: Link to Job Page -->
+                <a href="job-openings.html" class="btn btn-outline">View More Job Listings</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Counter -->
+    <section class="stats-section">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <h3>37K+</h3>
+                <p>Member Active</p>
+            </div>
+            <div class="stat-item">
+                <h3>50+</h3>
+                <p>Companies</p>
+            </div>
+            <div class="stat-item">
+                <h3>2K+</h3>
+                <p>Deployed</p>
+            </div>
+            <div class="stat-item">
+                <h3>5+</h3>
+                <p>Years Experience</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="jobs-header">
+                <h6>Common Questions</h6>
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item active">
+                    <div class="faq-question">What is a manpower agency? <i class="fas fa-chevron-up"></i></div>
+                    <div class="faq-answer">A manpower agency is a specialized organization that connects employers with qualified candidates, assisting in the recruitment and selection process.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Do I need to pay a fee to a manpower agency? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-answer">Applying with us is ABSOLUTELY FREE! We do not charge placement fees.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="https://jzptglobal.com/wp-content/uploads/elementor/thumbs/jzpt-logo-q82023ane185oeybbcls02cgs5qtl170koea6uzchs.jpg" alt="JZPT Logo" style="width: 150px; margin-bottom: 20px;">
+                    <p style="color: #94a3b8; margin-bottom: 20px;">Looking for a career change? Browse jobs abroad openings now!</p>
+                    <div class="social-icons">
+                        <a href="#" style="color: white; margin-right: 15px;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" style="color: white; margin-right: 15px;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: white;"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Full Time</a></li>
+                        <li><a href="#">Part Time</a></li>
+                        <li><a href="#">Freelance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Team</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p style="color: #94a3b8; margin-bottom: 15px;">Get exclusive updates by signing up to our Newsletter.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email Address">
+                        <button type="submit" class="btn" style="width: 100%;">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Copyright © 2023 JZPT Global Manpower Services, All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script for FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.querySelector('.faq-question').addEventListener('click', () => {
+                faqItems.forEach(i => {
+                    if(i !== item) {
+                        i.classList.remove('active');
+                        i.querySelector('i').classList.remove('fa-chevron-up');
+                        i.querySelector('i').classList.add('fa-chevron-down');
+                    }
+                });
+                item.classList.toggle('active');
+                const icon = item.querySelector('i');
+                if(item.classList.contains('active')){
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                } else {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
